@@ -1,0 +1,53 @@
+[
+  {
+    "type": "console.navigation/resource-ns",
+    "properties": {
+      "id": "crontab",
+      "name": "%plugin__crontab-plugin~CronTabs%",
+      "perspective": "admin",
+      "section": "workloads",
+      "insertBefore": "CronJob",
+      "model": {
+        "group": "stable.example.com",
+        "kind": "CronTab",
+        "version": "v1"
+      }
+    }
+  },
+  {
+    "type": "console.page/resource/list",
+    "properties": {
+      "model": {
+        "group": "stable.example.com",
+        "kind": "CronTab",
+        "version": "v1"
+      },
+      "component": { "$codeRef": "CronTabsList" }
+    }
+  },
+  {
+    "type": "console.page/resource/details",
+    "properties": {
+      "model": {
+        "group": "stable.example.com",
+        "kind": "CronTab",
+        "version": "v1"
+      },
+      "component": { "$codeRef": "CronTabPage" }
+    }
+  },
+  {
+    "type": "console.yaml-template",
+    "properties": {
+      "name": "default",
+      "model": {
+        "group": "stable.example.com",
+        "kind": "CronTab",
+        "version": "v1"
+      },
+      "template": {
+        "$codeRef": "yamlTemplates.defaultCronTabYamlTemplate"
+      }
+    }
+  }
+]
