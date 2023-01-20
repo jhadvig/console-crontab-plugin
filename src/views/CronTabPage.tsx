@@ -45,6 +45,7 @@ const CronTabNavPage: React.FC<CronTabPageProps> = ({ name, namespace, kind }) =
   return (
     <>
       {/* <DataSourcePageTitle dataSource={dataSource} namespace={namespace} name={name} /> */}
+      
       TEST
       {loaded ? (
         <HorizontalNav pages={pages} resource={dataSource} />
@@ -65,7 +66,6 @@ type CronTabDetailsPageProps = RouteComponentProps<{
 };
 
 const CronTabDetailsPage: React.FC<CronTabDetailsPageProps> = ({ obj: dataSource }) => {
-  // const { t } = useKubevirtTranslation();
 
   return (
     <div>

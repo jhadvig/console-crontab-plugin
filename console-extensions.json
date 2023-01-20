@@ -6,7 +6,8 @@
       "name": "%plugin__crontab-plugin~CronTabs%",
       "perspective": "admin",
       "section": "workloads",
-      "insertBefore": "CronJob",
+      "insertAfter": "WorkloadsSeparator",
+      "insertBefore": "cronjobs",
       "model": {
         "group": "stable.example.com",
         "kind": "CronTab",

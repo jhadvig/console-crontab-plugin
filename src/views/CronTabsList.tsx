@@ -11,12 +11,15 @@ import {
   K8sResourceCommon,
   // useListPageFilter,
   VirtualizedTable,
+  ListPageFilter,
+  useListPageFilter,
 } from '@openshift-console/dynamic-plugin-sdk';
 import { CronTabModel } from '@crontab-model/CronTabModel';
 import { sortable } from '@patternfly/react-table';
 
 import { ResourceLink, RowProps, TableData } from '@openshift-console/dynamic-plugin-sdk';
 import { TableColumn } from '@openshift-console/dynamic-plugin-sdk';
+// import { useTranslation } from 'react-i18next';
 
 
 // import './DataSourcesList.scss';
@@ -26,10 +29,12 @@ type CronTabsListProps = {
   namespace: string;
 };
 
+
+
 const CronTabsList: React.FC<CronTabsListProps> = ({ kind, namespace }) => {
   // const history = useHistory();
 
-  const [dataSources, loaded, loadError] = useK8sWatchResource<K8sResourceCommon[]>({
+  const [cronTabs, loaded, loadError] = useK8sWatchResource<K8sResourceCommon[]>({
     isList: true,
     groupVersionKind: {
       "group": "stable.example.com",
@@ -39,28 +44,34 @@ const CronTabsList: React.FC<CronTabsListProps> = ({ kind, namespace }) => {
     namespaced: true,
     namespace,
   });
+  // const { t } = useTranslation();
   const columns = useCronTabColumns();
-  // const [unfilteredData, data, onFilterChange] = useListPageFilter(dataSources, filters);
+  const [data, filteredData, onFilterChange] = useListPageFilter(cronTabs);
 
   return (
     <>
       <ListPageHeader title={'CronTab'}>
       </ListPageHeader>
       <ListPageBody>
+      <ListPageFilter
+            data={data}
+            loaded={loaded}
+            onFilterChange={onFilterChange}
+          />
         <VirtualizedTable<K8sResourceCommon>
-          data={dataSources}
-          unfilteredData={dataSources}
+          data={filteredData}
+          unfilteredData={cronTabs}
           loaded={loaded}
           loadError={loadError}
           columns={columns}
-          Row={DataSourcesListRow}
+          Row={cronTabsListRow}
         />
       </ListPageBody>
     </>
   );
 };
 
-const DataSourcesListRow: React.FC<RowProps<K8sResourceCommon>> = ({
+const cronTabsListRow: React.FC<RowProps<K8sResourceCommon>> = ({
   obj,
   activeColumnIDs,
 }) => {
