@@ -62,8 +62,5 @@
     "dependencies": {
       "@console/pluginAPI": "*"
     }
-  },
-  "dependencies": {
-    "fork-ts-checker-webpack-plugin": "^7.3.0"
   }
 }

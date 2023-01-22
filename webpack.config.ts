@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-env node */
 
 import { Configuration as WebpackConfiguration } from "webpack";
@@ -8,6 +9,8 @@ import { ConsoleRemotePlugin } from "@openshift-console/dynamic-plugin-sdk-webpa
 interface Configuration extends WebpackConfiguration {
   devServer?: WebpackDevServerConfiguration;
 }
+
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const config: Configuration = {
   mode: "development",
@@ -20,7 +23,9 @@ const config: Configuration = {
     chunkFilename: "[name]-chunk.js",
   },
   resolve: {
+    modules: [path.join(__dirname, 'node_modules')],
     extensions: [".ts", ".tsx", ".js", ".jsx"],
+    plugins: [new TsconfigPathsPlugin()],
   },
   module: {
     rules: [
@@ -56,10 +61,18 @@ const config: Configuration = {
     ],
   },
   devServer: {
-    static: './dist',
+    static: {
+      directory: path.join(__dirname, 'dist')
+    },
     port: 9001,
     // Allow bridge running in a container to connect to the plugin dev server.
     allowedHosts: 'all',
+    client: {
+      progress: true,
+      webSocketURL: {
+        port: 9001,
+      },
+    },
     headers: {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
@@ -68,6 +81,7 @@ const config: Configuration = {
     devMiddleware: {
       writeToDisk: true,
     },
+    hot: true,
   },
   plugins: [new ConsoleRemotePlugin()],
   devtool: "source-map",

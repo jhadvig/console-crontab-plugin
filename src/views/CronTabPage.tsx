@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-env node */
 import * as React from 'react';
 
 import Loading from '@crontab-utils/Loading';
