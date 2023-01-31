@@ -1,26 +1,24 @@
 import React from 'react';
-// import { useHistory } from 'react-router-dom';
-// import { DEFAULT_NAMESPACE } from '@crontab-utils/constants';
-import { modelToGroupVersionKind } from '@crontab-utils/utils';
+import { modelToGroupVersionKind, modelToRef } from '@crontab-utils/utils';
 import {
   ListPageBody,
-  // ListPageCreateDropdown,
-  // ListPageFilter,
   ListPageHeader,
   useK8sWatchResource,
   K8sResourceCommon,
-  // useListPageFilter,
   VirtualizedTable,
   ListPageFilter,
   useListPageFilter,
+  Timestamp,
+  ListPageCreate,
 } from '@openshift-console/dynamic-plugin-sdk';
 import { CronTabModel } from '@crontab-model/CronTabModel';
 import { sortable } from '@patternfly/react-table';
 
 import { ResourceLink, RowProps, TableData } from '@openshift-console/dynamic-plugin-sdk';
 import { TableColumn } from '@openshift-console/dynamic-plugin-sdk';
+import { CronTabKind } from './CronTabYAMLPage';
+// import { Kebab } from '@openshift-console/dynamic-plugin-sdk/lib';
 // import { useTranslation } from 'react-i18next';
-
 
 // import './DataSourcesList.scss';
 
@@ -29,11 +27,12 @@ type CronTabsListProps = {
   namespace: string;
 };
 
+// const { common } = Kebab.factory;
+// export const menuActions = [...Kebab.getExtensionsActionsForKind(CronJobModel), ...common];
 
+// const kind = 'CronTab';
 
 const CronTabsList: React.FC<CronTabsListProps> = ({ kind, namespace }) => {
-  // const history = useHistory();
-
   const [cronTabs, loaded, loadError] = useK8sWatchResource<K8sResourceCommon[]>({
     isList: true,
     groupVersionKind: {
@@ -51,6 +50,7 @@ const CronTabsList: React.FC<CronTabsListProps> = ({ kind, namespace }) => {
   return (
     <>
       <ListPageHeader title={'CronTab'}>
+        <ListPageCreate groupVersionKind={modelToRef(CronTabModel)}>Create CronTab</ListPageCreate>
       </ListPageHeader>
       <ListPageBody>
       <ListPageFilter
@@ -71,7 +71,7 @@ const CronTabsList: React.FC<CronTabsListProps> = ({ kind, namespace }) => {
   );
 };
 
-const cronTabsListRow: React.FC<RowProps<K8sResourceCommon>> = ({
+const cronTabsListRow: React.FC<RowProps<CronTabKind>> = ({
   obj,
   activeColumnIDs,
 }) => {
@@ -88,12 +88,24 @@ const cronTabsListRow: React.FC<RowProps<K8sResourceCommon>> = ({
       <TableData id="namespace" activeColumnIDs={activeColumnIDs} className="pf-m-width-15">
         <ResourceLink kind="Namespace" name={obj.metadata.namespace} />
       </TableData>
+      <TableData id="cronspec" activeColumnIDs={activeColumnIDs} className="pf-m-width-15">
+        <ResourceLink kind="cronspec" name={obj.spec.cronSpec} hideIcon />
+      </TableData>
+      <TableData id="image" activeColumnIDs={activeColumnIDs} className="pf-m-width-15">
+        <ResourceLink kind="image" name={obj.spec.image} hideIcon />
+      </TableData>
+      <TableData id="replicas" activeColumnIDs={activeColumnIDs} className="pf-m-width-15">
+      <ResourceLink kind="Replica" name={obj.spec.replicas} hideIcon />
+      </TableData>
+      <TableData id="created" activeColumnIDs={activeColumnIDs} className="pf-m-width-15">
+        <Timestamp timestamp={obj.metadata.creationTimestamp} />
+      </TableData>
+      {/* <DataSourceActions dataSource={obj} isKebabToggle /> */}
     </>
   );
 };
 
 const useCronTabColumns = () => {
-
   const columns: TableColumn<K8sResourceCommon>[] = React.useMemo(
     () => [
       {
@@ -108,6 +120,34 @@ const useCronTabColumns = () => {
         id: 'namespace',
         transforms: [sortable],
         sort: 'metadata.namespace',
+        props: { className: 'pf-m-width-15' },
+      },
+      {
+        title: 'CronSpec',
+        id: 'cronspec',
+        transforms: [sortable],
+        sort: 'spec.cronSpec',
+        props: { className: 'pf-m-width-15' },
+      },
+      {
+        title: 'Image',
+        id: 'image',
+        transforms: [sortable],
+        sort: 'spec.image',
+        props: { className: 'pf-m-width-15' },
+      },
+      {
+        title: 'Replicas',
+        id: 'replicas',
+        transforms: [sortable],
+        sort: 'spec.replicas',
+        props: { className: 'pf-m-width-15' },
+      },
+      {
+        title: 'Created',
+        id: 'created',
+        transforms: [sortable],
+        sort: 'metadata.creationTimestamp',
         props: { className: 'pf-m-width-15' },
       },
     ],

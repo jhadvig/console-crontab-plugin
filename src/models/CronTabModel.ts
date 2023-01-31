@@ -1,3 +1,4 @@
+import { modelToRef } from '@crontab-utils/utils';
 import { K8sModel } from '@openshift-console/dynamic-plugin-sdk/lib/api/common-types';
 
 export const CronTabModel: K8sModel = {
@@ -12,3 +13,5 @@ export const CronTabModel: K8sModel = {
   id: 'crontab',
   crd: true,
 };
+
+export const DataSourceModelRef = modelToRef(CronTabModel);
