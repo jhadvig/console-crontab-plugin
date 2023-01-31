@@ -3175,7 +3175,7 @@ var moduleMap = {
 		return Promise.all(/*! exposed-CronTabsList */[__webpack_require__.e("webpack_sharing_consume_default_openshift-console_dynamic-plugin-sdk-webpack_sharing_consume_-b0c54e"), __webpack_require__.e("exposed-CronTabsList")]).then(() => (() => ((__webpack_require__(/*! ./views/CronTabsList.tsx */ "./views/CronTabsList.tsx")))));
 	},
 	"CronTabDetails": () => {
-		return Promise.all(/*! exposed-CronTabDetails */[__webpack_require__.e("webpack_sharing_consume_default_openshift-console_dynamic-plugin-sdk-webpack_sharing_consume_-b0c54e"), __webpack_require__.e("exposed-CronTabDetails")]).then(() => (() => ((__webpack_require__(/*! ./views/CronTabDetails.tsx */ "./views/CronTabDetails.tsx")))));
+		return Promise.all(/*! exposed-CronTabDetails */[__webpack_require__.e("vendors-node_modules_patternfly_react-icons_dist_esm_icons_pencil-alt-icon_js"), __webpack_require__.e("webpack_sharing_consume_default_openshift-console_dynamic-plugin-sdk-webpack_sharing_consume_-b0c54e"), __webpack_require__.e("exposed-CronTabDetails")]).then(() => (() => ((__webpack_require__(/*! ./views/CronTabDetails.tsx */ "./views/CronTabDetails.tsx")))));
 	},
 	"yamlTemplates": () => {
 		return __webpack_require__.e(/*! exposed-yamlTemplates */ "exposed-yamlTemplates").then(() => (() => ((__webpack_require__(/*! src/templates/index.ts */ "./templates/index.ts")))));
@@ -3317,7 +3317,7 @@ __webpack_require__.d(exports, {
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("bf9dc57923b02f079962")
+/******/ 		__webpack_require__.h = () => ("6fc348b765bbf0baf2a8")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
@@ -3959,22 +3959,26 @@ __webpack_require__.d(exports, {
 /******/ 		});
 /******/ 		var installedModules = {};
 /******/ 		var moduleToHandlerMapping = {
-/******/ 			"webpack/sharing/consume/default/react": () => (loadSingletonVersionCheck("default", "react", [4,17,0,1])),
+/******/ 			"webpack/sharing/consume/default/react?558d": () => (loadSingletonVersionCheck("default", "react", [4,17,0,1])),
 /******/ 			"webpack/sharing/consume/default/@openshift-console/dynamic-plugin-sdk": () => (loadSingletonVersionCheck("default", "@openshift-console/dynamic-plugin-sdk", [4,0,0,12])),
 /******/ 			"webpack/sharing/consume/default/@patternfly/react-table": () => (loadSingletonVersionCheck("default", "@patternfly/react-table", [1,4,112,6])),
-/******/ 			"webpack/sharing/consume/default/@patternfly/react-core": () => (loadSingletonVersionCheck("default", "@patternfly/react-core", [4,4,235,7]))
+/******/ 			"webpack/sharing/consume/default/@patternfly/react-core": () => (loadSingletonVersionCheck("default", "@patternfly/react-core", [4,4,235,7])),
+/******/ 			"webpack/sharing/consume/default/react?3b77": () => (loadSingletonVersionCheck("default", "react", [,[1,18],[1,17],[1,16,8],1,1])),
+/******/ 			"webpack/sharing/consume/default/react-router-dom": () => (loadSingletonVersionCheck("default", "react-router-dom", [4,5,2,0]))
 /******/ 		};
 /******/ 		// no consumes in initial chunks
 /******/ 		var chunkMapping = {
 /******/ 			"webpack_sharing_consume_default_openshift-console_dynamic-plugin-sdk-webpack_sharing_consume_-b0c54e": [
-/******/ 				"webpack/sharing/consume/default/react",
+/******/ 				"webpack/sharing/consume/default/react?558d",
 /******/ 				"webpack/sharing/consume/default/@openshift-console/dynamic-plugin-sdk"
 /******/ 			],
 /******/ 			"exposed-CronTabsList": [
 /******/ 				"webpack/sharing/consume/default/@patternfly/react-table"
 /******/ 			],
 /******/ 			"exposed-CronTabDetails": [
-/******/ 				"webpack/sharing/consume/default/@patternfly/react-core"
+/******/ 				"webpack/sharing/consume/default/@patternfly/react-core",
+/******/ 				"webpack/sharing/consume/default/react?3b77",
+/******/ 				"webpack/sharing/consume/default/react-router-dom"
 /******/ 			]
 /******/ 		};
 /******/ 		__webpack_require__.f.consumes = (chunkId, promises) => {

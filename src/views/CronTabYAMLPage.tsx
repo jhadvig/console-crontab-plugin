@@ -1,25 +1,9 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-/* eslint-env node */
-import Loading from '@crontab-utils/Loading';
-import { K8sResourceCommon, ResourceYAMLEditor } from '@openshift-console/dynamic-plugin-sdk';
-import { PageSection, Title } from '@patternfly/react-core';
 import * as React from 'react';
+import Loading from '@crontab-utils/Loading';
+import { ResourceYAMLEditor } from '@openshift-console/dynamic-plugin-sdk';
+import { PageSection, Title } from '@patternfly/react-core';
 import { RouteComponentProps } from 'react-router';
-
-// import Loading from '@crontab-utils/Loading';
-// // import { CronTabModel } from '@crontab-model/CronTabModel';
-// import { HorizontalNav, useK8sWatchResource, K8sResourceCommon } from '@openshift-console/dynamic-plugin-sdk';
-// import { Bullseye, PageSection, Title } from '@patternfly/react-core';
-
-// import { RouteComponentProps } from 'react-router';
-
-export type CronTabKind = K8sResourceCommon & {
-    spec?: {
-      [key: string]: any;
-    };
-    status?: { [key: string]: any };
-  };
-
+import { CronTabKind } from '@crontab-model'; 
 
 type CronTabYAMLPageProps = RouteComponentProps<{
     ns: string;

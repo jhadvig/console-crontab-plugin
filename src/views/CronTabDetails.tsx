@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 import Loading from '@crontab-utils/Loading';
-// import { CronTabModel } from '@crontab-model/CronTabModel';
 import { 
   useK8sWatchResource, 
   K8sResourceCommon,
@@ -10,6 +9,7 @@ import {
 import { Bullseye } from '@patternfly/react-core';
 import CronTabYAMLPage from './CronTabYAMLPage';
 import CronTabDetailsPage from './CronTabDetailsPage';
+import CronTabPageTitle from './components/CronTabPageTitle';
 
 type CronTabPageProps = {
   name: string;
@@ -19,7 +19,7 @@ type CronTabPageProps = {
 
 const CronTabNavPage: React.FC<CronTabPageProps> = ({ name, namespace, kind }) => {
   // const { t } = useKubevirtTranslation();
-  const [dataSource, loaded] = useK8sWatchResource<K8sResourceCommon>({
+  const [cronTab, loaded] = useK8sWatchResource<K8sResourceCommon>({
     groupVersionKind: {
       "group": "stable.example.com",
       "kind": "CronTab",
@@ -48,7 +48,7 @@ const CronTabNavPage: React.FC<CronTabPageProps> = ({ name, namespace, kind }) =
 
   return (
     <>
-      {/* <DataSourcePageTitle dataSource={dataSource} namespace={namespace} name={name} /> */}
+      <CronTabPageTitle cronTab={cronTab} namespace={namespace} name={name} />
     
       {loaded ? (
         // <HorizontalNav pages={pages} resource={dataSource} />
@@ -58,7 +58,8 @@ const CronTabNavPage: React.FC<CronTabPageProps> = ({ name, namespace, kind }) =
         //   menuActions={menuActions}
         //   pagesFor={pagesFor}
         // />
-        <HorizontalNav pages={pages} resource={dataSource} />
+        
+        <HorizontalNav pages={pages} resource={cronTab} />
       ) : (
         <Bullseye>
           <Loading />

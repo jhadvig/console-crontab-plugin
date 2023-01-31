@@ -2,6 +2,7 @@ import { PageSection, Title } from '@patternfly/react-core';
 import * as React from 'react';
 
 import { RouteComponentProps } from "react-router";
+import { CronTabDetailsGrid } from './components/CronTabDetailsGrid';
 
 
 type CronTabDetailsPageProps = RouteComponentProps<{
@@ -11,13 +12,17 @@ type CronTabDetailsPageProps = RouteComponentProps<{
         obj?: any;
 };
   
-const CronTabDetailsPage: React.FC<CronTabDetailsPageProps> = ({ obj: dataSource }) => {
+const CronTabDetailsPage: React.FC<CronTabDetailsPageProps> = ({ obj }) => {
     return (
         <div>
         <PageSection>
             <Title headingLevel="h2" className="co-section-heading">
             CronTab details
             </Title>
+        </PageSection>
+        
+        <PageSection>
+            <CronTabDetailsGrid cronTab={obj}/>
         </PageSection>
         </div>
     );

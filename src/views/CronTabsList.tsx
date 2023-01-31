@@ -16,21 +16,13 @@ import { sortable } from '@patternfly/react-table';
 
 import { ResourceLink, RowProps, TableData } from '@openshift-console/dynamic-plugin-sdk';
 import { TableColumn } from '@openshift-console/dynamic-plugin-sdk';
-import { CronTabKind } from './CronTabYAMLPage';
-// import { Kebab } from '@openshift-console/dynamic-plugin-sdk/lib';
-// import { useTranslation } from 'react-i18next';
-
+import { CronTabKind } from '@crontab-model/CronTabModel';
 // import './DataSourcesList.scss';
 
 type CronTabsListProps = {
   kind: string;
   namespace: string;
 };
-
-// const { common } = Kebab.factory;
-// export const menuActions = [...Kebab.getExtensionsActionsForKind(CronJobModel), ...common];
-
-// const kind = 'CronTab';
 
 const CronTabsList: React.FC<CronTabsListProps> = ({ kind, namespace }) => {
   const [cronTabs, loaded, loadError] = useK8sWatchResource<K8sResourceCommon[]>({

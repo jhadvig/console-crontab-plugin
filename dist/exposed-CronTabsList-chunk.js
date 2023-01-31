@@ -10,7 +10,7 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "CronTabModel": () => (/* binding */ CronTabModel),
-/* harmony export */   "DataSourceModelRef": () => (/* binding */ DataSourceModelRef)
+/* harmony export */   "cronTabModelRef": () => (/* binding */ cronTabModelRef)
 /* harmony export */ });
 /* harmony import */ var _crontab_utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @crontab-utils/utils */ "./utils/utils.ts");
 
@@ -26,7 +26,7 @@ const CronTabModel = {
     id: 'crontab',
     crd: true,
 };
-const DataSourceModelRef = (0,_crontab_utils_utils__WEBPACK_IMPORTED_MODULE_0__.modelToRef)(CronTabModel);
+const cronTabModelRef = (0,_crontab_utils_utils__WEBPACK_IMPORTED_MODULE_0__.modelToRef)(CronTabModel);
 
 
 /***/ }),
@@ -63,7 +63,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "webpack/sharing/consume/default/react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "webpack/sharing/consume/default/react?558d");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _crontab_utils_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @crontab-utils/utils */ "./utils/utils.ts");
 /* harmony import */ var _openshift_console_dynamic_plugin_sdk__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @openshift-console/dynamic-plugin-sdk */ "webpack/sharing/consume/default/@openshift-console/dynamic-plugin-sdk");
@@ -77,9 +77,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// const { common } = Kebab.factory;
-// export const menuActions = [...Kebab.getExtensionsActionsForKind(CronJobModel), ...common];
-// const kind = 'CronTab';
 const CronTabsList = ({ kind, namespace }) => {
     const [cronTabs, loaded, loadError] = (0,_openshift_console_dynamic_plugin_sdk__WEBPACK_IMPORTED_MODULE_2__.useK8sWatchResource)({
         isList: true,
