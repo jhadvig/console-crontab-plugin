@@ -73,6 +73,17 @@
           "$codeRef": "yamlTemplates.defaultCronTabYamlTemplate"
         }
       }
+    },
+    {
+      "type": "console.context-provider",
+      "properties": {
+        "provider": {
+          "$codeRef": "modalProvider.ModalProvider"
+        },
+        "useValueHook": {
+          "$codeRef": "modalProvider.useModalValue"
+        }
+      }
     }
   ]
 }

@@ -274,7 +274,8 @@ const CronTabDetailsGrid = ({ cronTab }) => {
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.DescriptionListTermHelpTextButton, null, " Labels "))),
             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_DetailsItem__WEBPACK_IMPORTED_MODULE_2__.DetailsItem, { label: /*t(*/ 'public~Labels' /*)*/, obj: cronTab, path: "metadata.labels", valueClassName: "details-item__value--labels", 
                 // onEdit={(e) => editLabelsModal(e, { resource, kind: model })}
-                canEdit: /*showLabelEditor && canUpdate*/ true, editAsGroup: true }))));
+                canEdit: /*showLabelEditor && canUpdate*/ true, editAsGroup: true }),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.LabelGroup, null, [1, 2, 3, 4, 5].map(labelNumber => (react__WEBPACK_IMPORTED_MODULE_0__.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_1__.Label, { variant: "outline", key: `label-${labelNumber}` }, `Tag ${labelNumber}`)))))));
 };
 
 

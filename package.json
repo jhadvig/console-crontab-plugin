@@ -56,7 +56,8 @@
     "exposedModules": {
       "CronTabsList": "./views/CronTabsList.tsx",
       "CronTabDetails": "./views/CronTabDetails.tsx",
-      "yamlTemplates": "src/templates/index.ts"
+      "yamlTemplates": "src/templates/index.ts",
+      "modalProvider": "./utils/components/ModalProvider/ModalProvider.tsx"
     },
     "dependencies": {
       "@console/pluginAPI": "*"

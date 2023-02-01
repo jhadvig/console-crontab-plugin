@@ -17,6 +17,8 @@ import { sortable } from '@patternfly/react-table';
 import { ResourceLink, RowProps, TableData } from '@openshift-console/dynamic-plugin-sdk';
 import { TableColumn } from '@openshift-console/dynamic-plugin-sdk';
 import { CronTabKind } from '@crontab-model/CronTabModel';
+import CronTabActions from './components/CronTabActions';
+// import { customActionsToggle, defaultActions } from './components/CronTabActions';
 // import './DataSourcesList.scss';
 
 type CronTabsListProps = {
@@ -84,14 +86,21 @@ const cronTabsListRow: React.FC<RowProps<CronTabKind>> = ({
         <ResourceLink kind="cronspec" name={obj.spec.cronSpec} hideIcon />
       </TableData>
       <TableData id="image" activeColumnIDs={activeColumnIDs} className="pf-m-width-15">
-        <ResourceLink kind="image" name={obj.spec.image} hideIcon />
+        {obj.spec.image}
       </TableData>
       <TableData id="replicas" activeColumnIDs={activeColumnIDs} className="pf-m-width-15">
-      <ResourceLink kind="Replica" name={obj.spec.replicas} hideIcon />
+        {obj.spec.replicas}
       </TableData>
       <TableData id="created" activeColumnIDs={activeColumnIDs} className="pf-m-width-15">
         <Timestamp timestamp={obj.metadata.creationTimestamp} />
       </TableData>
+      <CronTabActions obj={obj} />
+      {/* <ActionsColumn items={defaultActions} actionsToggle={customActionsToggle} /> */}
+      {/* <TableData className={Kebab.columnClass} activeColumnIDs={activeColumnIDs} id="">
+        <LazyActionMenu context={context} isDisabled={phase === 'Terminating'} />
+      </TableData> */}
+
+      {/* <ActionGroup variant={ActionMenuVariant.DROPDOWN}> */}
       {/* <DataSourceActions dataSource={obj} isKebabToggle /> */}
     </>
   );
@@ -141,6 +150,11 @@ const useCronTabColumns = () => {
         transforms: [sortable],
         sort: 'metadata.creationTimestamp',
         props: { className: 'pf-m-width-15' },
+      },
+      {
+        title: '',
+        id: 'actions',
+        props: { className: 'dropdown-kebab-pf pf-c-table__action' },
       },
     ],
     [],
