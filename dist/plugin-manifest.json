@@ -43,7 +43,7 @@
           "version": "v1"
         },
         "component": {
-          "$codeRef": "CronTabsList"
+          "$codeRef": "CronTabList"
         }
       }
     },

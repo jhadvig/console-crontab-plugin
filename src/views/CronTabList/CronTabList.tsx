@@ -17,16 +17,16 @@ import { sortable } from '@patternfly/react-table';
 import { ResourceLink, RowProps, TableData } from '@openshift-console/dynamic-plugin-sdk';
 import { TableColumn } from '@openshift-console/dynamic-plugin-sdk';
 import { CronTabKind } from '@crontab-model/CronTabModel';
-import CronTabActions from './components/CronTabActions';
+import CronTabActions from '../components/CronTabActions';
 // import { customActionsToggle, defaultActions } from './components/CronTabActions';
-// import './DataSourcesList.scss';
+import './CronTabList.scss';
 
-type CronTabsListProps = {
+type CronTabListProps = {
   kind: string;
   namespace: string;
 };
 
-const CronTabsList: React.FC<CronTabsListProps> = ({ kind, namespace }) => {
+const CronTabList: React.FC<CronTabListProps> = ({ kind, namespace }) => {
   const [cronTabs, loaded, loadError] = useK8sWatchResource<K8sResourceCommon[]>({
     isList: true,
     groupVersionKind: {
@@ -58,14 +58,14 @@ const CronTabsList: React.FC<CronTabsListProps> = ({ kind, namespace }) => {
           loaded={loaded}
           loadError={loadError}
           columns={columns}
-          Row={cronTabsListRow}
+          Row={cronTabListRow}
         />
       </ListPageBody>
     </>
   );
 };
 
-const cronTabsListRow: React.FC<RowProps<CronTabKind>> = ({
+const cronTabListRow: React.FC<RowProps<CronTabKind>> = ({
   obj,
   activeColumnIDs,
 }) => {
@@ -95,13 +95,6 @@ const cronTabsListRow: React.FC<RowProps<CronTabKind>> = ({
         <Timestamp timestamp={obj.metadata.creationTimestamp} />
       </TableData>
       <CronTabActions obj={obj} />
-      {/* <ActionsColumn items={defaultActions} actionsToggle={customActionsToggle} /> */}
-      {/* <TableData className={Kebab.columnClass} activeColumnIDs={activeColumnIDs} id="">
-        <LazyActionMenu context={context} isDisabled={phase === 'Terminating'} />
-      </TableData> */}
-
-      {/* <ActionGroup variant={ActionMenuVariant.DROPDOWN}> */}
-      {/* <DataSourceActions dataSource={obj} isKebabToggle /> */}
     </>
   );
 };
@@ -163,4 +156,4 @@ const useCronTabColumns = () => {
   return columns;
 };
 
-export default CronTabsList;
+export default CronTabList;
