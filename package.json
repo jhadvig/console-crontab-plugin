@@ -23,6 +23,7 @@
     "@types/react": "^17.0.34",
     "@types/react-helmet": "^6.1.4",
     "@types/react-router-dom": "^5.3.2",
+    "@types/react-tagsinput": "^3.19.0",
     "@types/webpack-dev-server": "^4.5.0",
     "@typescript-eslint/eslint-plugin": "^5.3.0",
     "@typescript-eslint/parser": "^5.3.0",
@@ -39,6 +40,9 @@
     "react-i18next": "^11.8.11",
     "react-router": "5.2.0",
     "react-router-dom": "5.2.0",
+    "resolve-url-loader": "^5.0.0",
+    "sass": "^1.58.0",
+    "sass-loader": "^13.2.0",
     "style-loader": "^3.3.1",
     "ts-loader": "^9.2.6",
     "ts-node": "^10.4.0",
@@ -66,5 +70,8 @@
   "resolutions": {
     "webpack": "^5.68.0",
     "@types/react": "17.0.40"
+  },
+  "dependencies": {
+    "react-tagsinput": "^3.20.0"
   }
 }
