@@ -1,5 +1,3 @@
-import { NO_DATA_DASH } from '@kubevirt-utils/resources/vm/utils/constants';
-
 import {
   DAY,
   HOUR,
@@ -7,6 +5,7 @@ import {
   MAX_CLOCK_SKEW_MS,
   MINTUE,
   MINUTE_IN_MS,
+  NO_DATA_DASH,
   TEN_AND_HALF_MINUTES_IN_MS,
 } from './constants';
 
