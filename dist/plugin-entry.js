@@ -3172,10 +3172,10 @@ module.exports.formatError = function (err) {
 "use strict";
 var moduleMap = {
 	"CronTabList": () => {
-		return Promise.all(/*! exposed-CronTabList */[__webpack_require__.e("vendors-node_modules_patternfly_react-icons_dist_esm_createIcon_js-node_modules_css-loader_di-8b5d4d"), __webpack_require__.e("webpack_sharing_consume_default_react"), __webpack_require__.e("models_index_ts-utils_constants_ts-views_modals_LabelsModal_LabelsModal_tsx-webpack_sharing_c-b3f826"), __webpack_require__.e("exposed-CronTabList")]).then(() => (() => ((__webpack_require__(/*! ./views/CronTabList/CronTabList.tsx */ "./views/CronTabList/CronTabList.tsx")))));
+		return Promise.all(/*! exposed-CronTabList */[__webpack_require__.e("vendors-node_modules_patternfly_react-icons_dist_esm_createIcon_js-node_modules_css-loader_di-8b5d4d"), __webpack_require__.e("webpack_sharing_consume_default_react"), __webpack_require__.e("models_index_ts-utils_components_ModalProvider_ModalProvider_tsx-utils_constants_ts-views_mod-b05d4a"), __webpack_require__.e("exposed-CronTabList")]).then(() => (() => ((__webpack_require__(/*! ./views/CronTabList/CronTabList.tsx */ "./views/CronTabList/CronTabList.tsx")))));
 	},
 	"CronTabDetails": () => {
-		return Promise.all(/*! exposed-CronTabDetails */[__webpack_require__.e("vendors-node_modules_patternfly_react-icons_dist_esm_createIcon_js-node_modules_css-loader_di-8b5d4d"), __webpack_require__.e("webpack_sharing_consume_default_react"), __webpack_require__.e("models_index_ts-utils_constants_ts-views_modals_LabelsModal_LabelsModal_tsx-webpack_sharing_c-b3f826"), __webpack_require__.e("exposed-CronTabDetails")]).then(() => (() => ((__webpack_require__(/*! ./views/CronTabDetails.tsx */ "./views/CronTabDetails.tsx")))));
+		return Promise.all(/*! exposed-CronTabDetails */[__webpack_require__.e("vendors-node_modules_patternfly_react-icons_dist_esm_createIcon_js-node_modules_css-loader_di-8b5d4d"), __webpack_require__.e("webpack_sharing_consume_default_react"), __webpack_require__.e("models_index_ts-utils_components_ModalProvider_ModalProvider_tsx-utils_constants_ts-views_mod-b05d4a"), __webpack_require__.e("exposed-CronTabDetails")]).then(() => (() => ((__webpack_require__(/*! ./views/CronTabDetails.tsx */ "./views/CronTabDetails.tsx")))));
 	},
 	"yamlTemplates": () => {
 		return __webpack_require__.e(/*! exposed-yamlTemplates */ "exposed-yamlTemplates").then(() => (() => ((__webpack_require__(/*! src/templates/index.ts */ "./templates/index.ts")))));
@@ -3320,7 +3320,7 @@ __webpack_require__.d(exports, {
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("51d4f303a33c3375bf51")
+/******/ 		__webpack_require__.h = () => ("0db3297909647975cdff")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
@@ -3966,8 +3966,8 @@ __webpack_require__.d(exports, {
 /******/ 			"webpack/sharing/consume/default/@openshift-console/dynamic-plugin-sdk": () => (loadSingletonVersionCheck("default", "@openshift-console/dynamic-plugin-sdk", [4,0,0,12])),
 /******/ 			"webpack/sharing/consume/default/@patternfly/react-core": () => (loadSingletonVersionCheck("default", "@patternfly/react-core", [4,4,235,7])),
 /******/ 			"webpack/sharing/consume/default/react-router-dom": () => (loadSingletonVersionCheck("default", "react-router-dom", [4,5,2,0])),
-/******/ 			"webpack/sharing/consume/default/react?eb0f": () => (loadSingletonVersionCheck("default", "react", [,[1,15,0,0],[1,16,0,0],[1,17,0,0],[1,18,0,0],1,1,1])),
 /******/ 			"webpack/sharing/consume/default/react?3b77": () => (loadSingletonVersionCheck("default", "react", [,[1,18],[1,17],[1,16,8],1,1])),
+/******/ 			"webpack/sharing/consume/default/react?eb0f": () => (loadSingletonVersionCheck("default", "react", [,[1,15,0,0],[1,16,0,0],[1,17,0,0],[1,18,0,0],1,1,1])),
 /******/ 			"webpack/sharing/consume/default/@patternfly/react-table": () => (loadSingletonVersionCheck("default", "@patternfly/react-table", [1,4,112,6])),
 /******/ 			"webpack/sharing/consume/default/react-i18next": () => (loadSingletonVersionCheck("default", "react-i18next", [1,11,8,11]))
 /******/ 		};
@@ -3976,12 +3976,12 @@ __webpack_require__.d(exports, {
 /******/ 			"webpack_sharing_consume_default_react": [
 /******/ 				"webpack/sharing/consume/default/react?558d"
 /******/ 			],
-/******/ 			"models_index_ts-utils_constants_ts-views_modals_LabelsModal_LabelsModal_tsx-webpack_sharing_c-b3f826": [
+/******/ 			"models_index_ts-utils_components_ModalProvider_ModalProvider_tsx-utils_constants_ts-views_mod-b05d4a": [
 /******/ 				"webpack/sharing/consume/default/@openshift-console/dynamic-plugin-sdk",
 /******/ 				"webpack/sharing/consume/default/@patternfly/react-core",
 /******/ 				"webpack/sharing/consume/default/react-router-dom",
-/******/ 				"webpack/sharing/consume/default/react?eb0f",
-/******/ 				"webpack/sharing/consume/default/react?3b77"
+/******/ 				"webpack/sharing/consume/default/react?3b77",
+/******/ 				"webpack/sharing/consume/default/react?eb0f"
 /******/ 			],
 /******/ 			"exposed-CronTabList": [
 /******/ 				"webpack/sharing/consume/default/@patternfly/react-table",

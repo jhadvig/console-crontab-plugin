@@ -19,9 +19,6 @@ const CronTabDetailsPage: React.FC<CronTabDetailsPageProps> = ({ obj }) => {
             <Title headingLevel="h2" className="co-section-heading">
             CronTab details
             </Title>
-        </PageSection>
-        
-        <PageSection>
             <CronTabDetailsGrid cronTab={obj}/>
         </PageSection>
         </div>
