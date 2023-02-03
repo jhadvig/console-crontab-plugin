@@ -18,7 +18,7 @@ export const useCronTabActionsProvider: UseCronTabActionsProvider = (
 ) => {
   // const dataSourceName = cronTab?.spec?.managedDataSource;
   // const [dataSource, setDataSource] = React.useState<V1beta1DataSource>();
-  const [isLoading, setIsLoading] = React.useState<boolean>(false);
+  const [isLoading/*, setIsLoading*/] = React.useState<boolean>(false);
   // const { t } = useKubevirtTranslation();
   const t = (key: string) => key;
   const { createModal } = useModal();

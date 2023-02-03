@@ -11,6 +11,13 @@
     }
   },
   {
+    "type": "console.context-provider",
+    "properties": {
+      "provider": { "$codeRef": "modalProvider.ModalProvider" },
+      "useValueHook": { "$codeRef": "modalProvider.useModalValue" }
+    }
+  },
+  {
     "type": "console.navigation/resource-ns",
     "properties": {
       "id": "crontab",
@@ -36,10 +43,10 @@
       },
       "component": {
         "$codeRef": "CronTabList"
-      },
-      "provider": { "$codeRef": "modalProvider.ModalProvider" },
-      "useValueHook": { "$codeRef": "modalProvider.useModalValue" }
-    }
+      }
+    },
+    "provider": { "$codeRef": "modalProvider.ModalProvider" },
+    "useValueHook": { "$codeRef": "modalProvider.useModalValue" }
   },
   {
     "type": "console.page/resource/details",
@@ -69,10 +76,16 @@
     }
   },
   {
-    "type": "console.context-provider",
+    "type": "console.action/resource-provider",
     "properties": {
-      "provider": { "$codeRef": "modalProvider.ModalProvider" },
-      "useValueHook": { "$codeRef": "modalProvider.useModalValue" }
+      "model": {
+        "group": "stable.example.com",
+        "kind": "CronTab",
+        "version": "v1"
+      },
+      "provider": {
+        "$codeRef": "useCronTabActionsProvider.useCronTabActionsProvider"
+      }
     }
   }
 ]

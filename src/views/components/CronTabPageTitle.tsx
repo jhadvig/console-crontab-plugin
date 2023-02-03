@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Breadcrumb, BreadcrumbItem } from '@patternfly/react-core';
 import { CronTabKind, cronTabModelRef } from '../../models/CronTabModel';
 import { DEFAULT_NAMESPACE } from '@crontab-utils/constants';
-import CronTabActions from '../CronTabList/CronTabRowActions';
+import { CronTabActions } from './CronTabActions/CronTabActions';
 // import DataSourceActions from '../actions/DataSourceActions';
 // import { isDataSourceReady } from '../utils';
 
@@ -39,7 +39,7 @@ const CronTabPageTitle: React.FC<CronTabPageTitleProps> = ({
             </span>
           </h1>
           <div className="co-actions">
-            <CronTabActions obj={cronTab} />
+            <CronTabActions cronTab={cronTab} />
           </div>
         </span>
       </div>

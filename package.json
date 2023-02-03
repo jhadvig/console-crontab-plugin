@@ -62,7 +62,8 @@
       "CronTabList": "./views/CronTabList/CronTabList.tsx",
       "CronTabDetails": "./views/CronTabDetails.tsx",
       "yamlTemplates": "src/templates/index.ts",
-      "modalProvider": "./utils/components/ModalProvider/ModalProvider.tsx"
+      "modalProvider": "./utils/components/ModalProvider/ModalProvider.tsx",
+      "useCronTabActionsProvider": "./views/hooks/useCronTabActionsProvider.tsx"
     },
     "dependencies": {
       "@console/pluginAPI": "*"
