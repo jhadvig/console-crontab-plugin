@@ -5,7 +5,7 @@ import { AnnotationsModal } from '../modals/AnnotationsModal/AnnotationsModal';
 import { Action, k8sDelete, k8sPatch } from '@openshift-console/dynamic-plugin-sdk';
 import { CronTabKind, CronTabModel, cronTabModelRef } from '@crontab-model';
 
-import { useModal } from '../modals/ModalProvider/ModalProvider';
+import { useModal } from '@crontab-utils/components/ModalProvider/ModalProvider';
 import DeleteModal from '../modals/DeleteModal/DeleteModal';
 import { LabelsModal } from '../modals/LabelsModal/LabelsModal';
 
