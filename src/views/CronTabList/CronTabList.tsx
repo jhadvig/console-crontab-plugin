@@ -83,7 +83,7 @@ const cronTabListRow: React.FC<RowProps<CronTabKind>> = ({
         <ResourceLink kind="Namespace" name={obj.metadata.namespace} />
       </TableData>
       <TableData id="cronspec" activeColumnIDs={activeColumnIDs} className="pf-m-width-15">
-        <ResourceLink kind="cronspec" name={obj.spec.cronSpec} hideIcon />
+        {obj.spec.cronSpec}
       </TableData>
       <TableData id="image" activeColumnIDs={activeColumnIDs} className="pf-m-width-15">
         {obj.spec.image}

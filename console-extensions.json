@@ -44,9 +44,7 @@
       "component": {
         "$codeRef": "CronTabList"
       }
-    },
-    "provider": { "$codeRef": "modalProvider.ModalProvider" },
-    "useValueHook": { "$codeRef": "modalProvider.useModalValue" }
+    }
   },
   {
     "type": "console.page/resource/details",
@@ -56,9 +54,7 @@
         "kind": "CronTab",
         "version": "v1"
       },
-      "component": { "$codeRef": "CronTabDetails" },
-      "provider": { "$codeRef": "modalProvider.ModalProvider" },
-      "useValueHook": { "$codeRef": "modalProvider.useModalValue" }
+      "component": { "$codeRef": "CronTabDetails" }
     }
   },
   {
