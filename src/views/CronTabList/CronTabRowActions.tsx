@@ -9,18 +9,18 @@ import {
 } from '@patternfly/react-core';
 import { CronTabKind, CronTabModel, cronTabModelRef } from '@crontab-model';
 import TabModal from '../modals/TabModal/TabModal';
-import ConfirmActionMessage from './ConfirmActionMessage/ConfirmActionMessage';
+import ConfirmActionMessage from '../components/ConfirmActionMessage/ConfirmActionMessage';
 import { useModal } from '@crontab-utils/components/ModalProvider/ModalProvider';
 import { LabelsModal } from '../modals/LabelsModal/LabelsModal';
 import { AnnotationsModal } from '../modals/AnnotationsModal/AnnotationsModal';
 import { DEFAULT_NAMESPACE } from '@crontab-utils/constants';
 import { useHistory } from 'react-router-dom';
 
-type DiskRowActionsProps = {
+type CronTabRowActionsProps = {
   obj?: CronTabKind;
 };
 
-const CronTabActions: React.FC<DiskRowActionsProps> = ({ obj }) => {
+const CronTabRowActions: React.FC<CronTabRowActionsProps> = ({ obj }) => {
   const { createModal } = useModal();
   const history = useHistory();
   const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
@@ -132,4 +132,4 @@ const CronTabActions: React.FC<DiskRowActionsProps> = ({ obj }) => {
 export const getContentScrollableElement = (): HTMLElement =>
   document.getElementById('content-scrollable');
 
-export default CronTabActions;
+export default CronTabRowActions;

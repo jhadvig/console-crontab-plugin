@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Breadcrumb, BreadcrumbItem } from '@patternfly/react-core';
 import { CronTabKind, cronTabModelRef } from '../../models/CronTabModel';
 import { DEFAULT_NAMESPACE } from '@crontab-utils/constants';
+import CronTabActions from '../CronTabList/CronTabRowActions';
 // import DataSourceActions from '../actions/DataSourceActions';
 // import { isDataSourceReady } from '../utils';
 
@@ -36,14 +37,9 @@ const CronTabPageTitle: React.FC<CronTabPageTitleProps> = ({
             <span data-test-id="resource-title" className="co-resource-item__resource-name">
               {name ?? cronTab?.metadata?.name}{' '}
             </span>
-            {/* {isDataSourceReady(dataSource) && (
-              <span className="dps-resource-item__resource-status hidden-xs">
-                <Label isCompact>{t('Ready')}</Label>
-              </span>
-            )} */}
           </h1>
           <div className="co-actions">
-            {/* <DataSourceActions dataSource={dataSource} /> */}
+            <CronTabActions obj={cronTab} />
           </div>
         </span>
       </div>

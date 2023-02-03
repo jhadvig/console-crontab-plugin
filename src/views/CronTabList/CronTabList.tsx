@@ -17,7 +17,7 @@ import { sortable } from '@patternfly/react-table';
 import { ResourceLink, RowProps, TableData } from '@openshift-console/dynamic-plugin-sdk';
 import { TableColumn } from '@openshift-console/dynamic-plugin-sdk';
 import { CronTabKind } from '@crontab-model/CronTabModel';
-import CronTabActions from '../components/CronTabActions';
+import CronTabRowActions from './CronTabRowActions';
 // import { customActionsToggle, defaultActions } from './components/CronTabActions';
 import './CronTabList.scss';
 
@@ -89,12 +89,18 @@ const cronTabListRow: React.FC<RowProps<CronTabKind>> = ({
         {obj.spec.image}
       </TableData>
       <TableData id="replicas" activeColumnIDs={activeColumnIDs} className="pf-m-width-15">
-        {obj.spec.replicas}
+        {obj.spec.replicas || ''}
       </TableData>
       <TableData id="created" activeColumnIDs={activeColumnIDs} className="pf-m-width-15">
         <Timestamp timestamp={obj.metadata.creationTimestamp} />
       </TableData>
-      <CronTabActions obj={obj} />
+      <TableData
+        id="actions"
+        activeColumnIDs={activeColumnIDs}
+        className="dropdown-kebab-pf pf-c-table__action"
+      >
+        <CronTabRowActions obj={obj} />
+      </TableData>
     </>
   );
 };
