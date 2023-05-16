@@ -57,7 +57,7 @@ spec:
     spec:
       containers:
         - name: crontab-plugin
-          image: docker.io/raspbeep/crontab-plugin:latest
+          image: docker.io/jhadvig/crontab-plugin:latest
           ports:
             - containerPort: 9443
               protocol: TCP
@@ -148,3 +148,5 @@ spec:
       namespace: crontab-plugin
       port: 9443
       basePath: '/'
+  i18n:
+    loadType: Preload

@@ -64,9 +64,7 @@
     "description": "Sample plugin for OpenShift Console. This plugin adds basic functionalities to the OpenShift Console that allows users to manage CronTab CRD.",
     "exposedModules": {
       "CronTabList": "./views/CronTabList/CronTabList.tsx",
-      "CronTabDetails": "./views/CronTabDetails.tsx",
       "yamlTemplates": "src/templates/index.ts",
-      "modalProvider": "./utils/components/ModalProvider/ModalProvider.tsx",
       "useCronTabActionsProvider": "./views/hooks/useCronTabActionsProvider.tsx"
     },
     "dependencies": {

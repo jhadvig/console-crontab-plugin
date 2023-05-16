@@ -15,7 +15,7 @@ A [Helm](https://helm.sh) chart is available to deploy the plugin to an OpenShif
 
 To deploy the plugin on a cluster using a Helm chart:
 ```shell
-helm upgrade -i crontab-plugin charts/crontab-plugin -n crontab-plugin-ns --create-namespace --set plugin.image=docker.io/raspbeep/crontab-plugin:latest
+helm upgrade -i crontab-plugin charts/crontab-plugin -n crontab-plugin-ns --create-namespace --set plugin.image=docker.io/jhadvig/crontab-plugin:latest
 ```
 
 `-i crontab-plugin`: specifies installation of a release named `crontab-plugin`
