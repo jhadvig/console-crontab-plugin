@@ -13,6 +13,7 @@ import {
   useListPageFilter,
   VirtualizedTable,
 } from '@openshift-console/dynamic-plugin-sdk';
+import { useCronTabTranslation } from '@crontab-utils/hooks/useCronTabTranslation';
 import { ResourceLink, RowProps, TableData } from '@openshift-console/dynamic-plugin-sdk';
 import { TableColumn } from '@openshift-console/dynamic-plugin-sdk';
 import { sortable } from '@patternfly/react-table';
@@ -35,13 +36,13 @@ const CronTabList: React.FC<CronTabListProps> = ({ namespace }) => {
     namespaced: true,
     namespace,
   });
-  // const { t } = useTranslation();
+  const { t } = useCronTabTranslation();
   const columns = useCronTabColumns();
   const [data, filteredData, onFilterChange] = useListPageFilter(cronTabs);
 
   return (
     <>
-      <ListPageHeader title={'CronTab'}>
+      <ListPageHeader title={t('CronTab')}>
         <ListPageCreate groupVersionKind={modelToRef(CronTabModel)}>Create CronTab</ListPageCreate>
       </ListPageHeader>
       <ListPageBody>
@@ -96,45 +97,46 @@ const cronTabListRow: React.FC<RowProps<CronTabKind>> = ({ obj, activeColumnIDs 
 };
 
 const useCronTabColumns = () => {
+  const { t } = useCronTabTranslation();
   const columns: TableColumn<K8sResourceCommon>[] = React.useMemo(
     () => [
       {
-        title: 'Name',
+        title: t('Name'),
         id: 'name',
         transforms: [sortable],
         sort: 'metadata.name',
         props: { className: 'pf-m-width-15' },
       },
       {
-        title: 'Namespace',
+        title: t('Namespace'),
         id: 'namespace',
         transforms: [sortable],
         sort: 'metadata.namespace',
         props: { className: 'pf-m-width-15' },
       },
       {
-        title: 'CronSpec',
+        title: t('CronSpec'),
         id: 'cronspec',
         transforms: [sortable],
         sort: 'spec.cronSpec',
         props: { className: 'pf-m-width-15' },
       },
       {
-        title: 'Image',
+        title: t('Image'),
         id: 'image',
         transforms: [sortable],
         sort: 'spec.image',
         props: { className: 'pf-m-width-15' },
       },
       {
-        title: 'Replicas',
+        title: t('Replicas'),
         id: 'replicas',
         transforms: [sortable],
         sort: 'spec.replicas',
         props: { className: 'pf-m-width-15' },
       },
       {
-        title: 'Created',
+        title: t('Created'),
         id: 'created',
         transforms: [sortable],
         sort: 'metadata.creationTimestamp',

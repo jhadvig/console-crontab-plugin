@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 
 import { CronTabKind, cronTabModelRef } from '@crontab-model';
 import { DEFAULT_NAMESPACE } from '@crontab-utils/constants';
+import { useCronTabTranslation } from '@crontab-utils/hooks/useCronTabTranslation';
 import {
   Dropdown,
   DropdownItem,
@@ -16,6 +17,7 @@ type CronTabRowActionsProps = {
 
 const CronTabRowActions: React.FC<CronTabRowActionsProps> = ({ obj }) => {
   const history = useHistory();
+  const { t } = useCronTabTranslation();
   const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
 
   const onEditCronTab = () => {
@@ -36,7 +38,7 @@ const CronTabRowActions: React.FC<CronTabRowActionsProps> = ({ obj }) => {
       isPlain
       dropdownItems={[
         <DropdownItem onClick={onEditCronTab} key="crontab-edit-yaml">
-          {'Edit CronTab'}
+          {t('Edit CronTab')}
         </DropdownItem>,
       ]}
       position={DropdownPosition.right}
