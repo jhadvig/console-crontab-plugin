@@ -9,13 +9,32 @@ default YAML template for a CRD.
 
 ## Deployment on cluster
 
+Before you can deploy your plugin on a cluster, you must build an image and
+push it to an image registry.
 
-### Option 1: Installing the Helm Chart (WIP - does not work yet)
+1. Build the image:
+   
+   NOTE: If you have a Mac with Apple silicon, you will need to add the flag
+   `--platform=linux/amd64` when building the image to target the correct platform
+   to run in-cluster.
+
+   ```sh
+   docker build -f Dockerfile -t $NAME/crontab-plugin:latest . --no-cache
+   ```
+
+2. Push the image:
+
+   ```sh
+   docker push $NAME/crontab-plugin:latest
+   ```
+
+
+### Option 1: Installing the Helm Chart
 A [Helm](https://helm.sh) chart is available to deploy the plugin to an OpenShift environment.
 
 To deploy the plugin on a cluster using a Helm chart:
 ```shell
-helm upgrade -i crontab-plugin charts/crontab-plugin -n crontab-plugin-ns --create-namespace --set plugin.image=docker.io/jhadvig/crontab-plugin:latest
+helm upgrade -i crontab-plugin charts/crontab-plugin -n crontab-plugin-ns --create-namespace --set plugin.image=docker.io/$NAME/crontab-plugin:latest
 ```
 
 `-i crontab-plugin`: specifies installation of a release named `crontab-plugin`
@@ -56,24 +75,3 @@ In another terminal window, run:
 
 1. `oc login`
 2. `yarn run start-console` (requires [Docker](https://www.docker.com) or [podman](https://podman.io))
-
-## Docker image
-
-Before you can deploy your plugin on a cluster, you must build an image and
-push it to an image registry.
-
-1. Build the image:
-   
-   NOTE: If you have a Mac with Apple silicon, you will need to add the flag
-   `--platform=linux/amd64` when building the image to target the correct platform
-   to run in-cluster.
-
-   ```sh
-   docker build -f Dockerfile -t $NAME/crontab-plugin:latest . --no-cache
-   ```
-
-3. Push the image:
-
-   ```sh
-   docker push $NAME/crontab-plugin:latest
-   ```
