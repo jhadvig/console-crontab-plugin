@@ -17,9 +17,10 @@ export const CronTabModel: K8sModel = {
 
 export type CronTabKind = K8sResourceCommon & {
   spec?: {
-    [key: string]: any;
+    cronSpec: string;
+    image: string;
+    replicas: number;
   };
-  status?: { [key: string]: any };
 };
 
 export const cronTabModelRef = modelToRef(CronTabModel);

@@ -2,7 +2,6 @@ import * as React from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { CronTabKind, cronTabModelRef } from '@crontab-model';
-import { DEFAULT_NAMESPACE } from '@crontab-utils/constants';
 import { useCronTabTranslation } from '@crontab-utils/hooks/useCronTabTranslation';
 import {
   Dropdown,
@@ -22,16 +21,14 @@ const CronTabRowActions: React.FC<CronTabRowActionsProps> = ({ obj }) => {
 
   const onEditCronTab = () => {
     const cta = {
-      href: `/k8s/ns/${obj.metadata.namespace || DEFAULT_NAMESPACE}/${cronTabModelRef}/${
-        obj.metadata.name
-      }/yaml`,
+      href: `/k8s/ns/${obj.metadata.namespace}/${cronTabModelRef}/${obj.metadata.name}/yaml`,
     };
     history.push(cta.href);
   };
 
   return (
     <Dropdown
-      menuAppendTo={getContentScrollableElement}
+      menuAppendTo={"parent"}
       onSelect={() => setIsDropdownOpen(false)}
       toggle={<KebabToggle onToggle={setIsDropdownOpen} id="toggle-id-disk" />}
       isOpen={isDropdownOpen}
@@ -45,8 +42,5 @@ const CronTabRowActions: React.FC<CronTabRowActionsProps> = ({ obj }) => {
     />
   );
 };
-
-export const getContentScrollableElement = (): HTMLElement =>
-  document.getElementById('content-scrollable');
 
 export default CronTabRowActions;

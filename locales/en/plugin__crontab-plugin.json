@@ -1,12 +1,13 @@
 {
-  "Actions": "",
-  "Created": "",
-  "CronSpec": "",
-  "CronTab": "",
-  "Edit": "",
-  "Edit CronTab": "",
-  "Image": "",
-  "Name": "",
-  "Namespace": "",
-  "Replicas": ""
+  "Actions": "Actions",
+  "Created": "Created",
+  "CronSpec": "CronSpec",
+  "CronTab": "CronTab",
+  "CronTabs": "CronTabs",
+  "Edit": "Edit",
+  "Edit CronTab": "Edit CronTab",
+  "Image": "Image",
+  "Name": "Name",
+  "Namespace": "Namespace",
+  "Replicas": "Replicas"
 }

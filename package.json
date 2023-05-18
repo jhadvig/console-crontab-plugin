@@ -11,7 +11,7 @@
     "build-dev": "yarn clean && yarn ts-node node_modules/.bin/webpack",
     "start": "yarn ts-node node_modules/.bin/webpack serve",
     "start-console": "./start-console.sh",
-    "i18n": "i18next \"src/**/*.{js,jsx,ts,tsx}\" [-oc] -c i18next-parser.config.js",
+    "i18n": "./i18n-scripts/build-i18n.sh && node ./i18n-scripts/set-english-defaults.js",
     "ts-node": "ts-node -O '{\"module\":\"commonjs\"}'",
     "lint": "eslint ./src --fix && stylelint \"src/**/*.css\" --allow-empty-input --fix"
   },
@@ -30,6 +30,7 @@
     "@typescript-eslint/eslint-plugin": "^5.3.0",
     "@typescript-eslint/parser": "^5.3.0",
     "comment-json": "^4.1.1",
+    "copy-webpack-plugin": "^6.4.1",
     "css-loader": "^6.5.1",
     "eslint": "^8.1.0",
     "eslint-config-prettier": "^8.3.0",
@@ -37,6 +38,8 @@
     "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
+    "i18next-conv": "^12.1.1",
+    "i18next-parser": "3.x",
     "pluralize": "^8.0.0",
     "prettier": "^2.4.1",
     "react": "17.0.1",
@@ -60,8 +63,8 @@
   "consolePlugin": {
     "name": "crontab-plugin",
     "version": "0.0.1",
-    "displayName": "OpenShift CronTab Plugin",
-    "description": "Sample plugin for OpenShift Console. This plugin adds basic functionalities to the OpenShift Console that allows users to manage CronTab CRD.",
+    "displayName": "Sample CronTab Plugin",
+    "description": "Sample plugin for the OpenShift Console. This plugin adds basic functionality that allows users to manage CronTab custom resources.",
     "exposedModules": {
       "CronTabList": "./views/CronTabList/CronTabList.tsx",
       "yamlTemplates": "src/templates/index.ts",
@@ -76,8 +79,6 @@
     "@types/react": "17.0.40"
   },
   "dependencies": {
-    "i18next-conv": "^13.1.1",
-    "i18next-parser": "^7.6.0",
     "react-tagsinput": "^3.20.0"
   }
 }

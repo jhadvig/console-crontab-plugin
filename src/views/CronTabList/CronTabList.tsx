@@ -63,32 +63,32 @@ const CronTabList: React.FC<CronTabListProps> = ({ namespace }) => {
 const cronTabListRow: React.FC<RowProps<CronTabKind>> = ({ obj, activeColumnIDs }) => {
   return (
     <>
-      <TableData id="name" activeColumnIDs={activeColumnIDs} className="pf-m-width-15">
+      <TableData id="name" activeColumnIDs={activeColumnIDs} >
         <ResourceLink
           groupVersionKind={modelToGroupVersionKind(CronTabModel)}
           name={obj.metadata.name}
           namespace={obj.metadata.namespace}
         />
       </TableData>
-      <TableData id="namespace" activeColumnIDs={activeColumnIDs} className="pf-m-width-15">
+      <TableData id="namespace" activeColumnIDs={activeColumnIDs} >
         <ResourceLink kind="Namespace" name={obj.metadata.namespace} />
       </TableData>
-      <TableData id="cronspec" activeColumnIDs={activeColumnIDs} className="pf-m-width-15">
+      <TableData id="cronspec" activeColumnIDs={activeColumnIDs} >
         {obj.spec.cronSpec}
       </TableData>
-      <TableData id="image" activeColumnIDs={activeColumnIDs} className="pf-m-width-15">
+      <TableData id="image" activeColumnIDs={activeColumnIDs} >
         {obj.spec.image}
       </TableData>
-      <TableData id="replicas" activeColumnIDs={activeColumnIDs} className="pf-m-width-15">
-        {obj.spec.replicas || ''}
+      <TableData id="replicas" activeColumnIDs={activeColumnIDs}>
+        {obj.spec.replicas}
       </TableData>
-      <TableData id="created" activeColumnIDs={activeColumnIDs} className="pf-m-width-15">
+      <TableData id="created" activeColumnIDs={activeColumnIDs} >
         <Timestamp timestamp={obj.metadata.creationTimestamp} />
       </TableData>
       <TableData
         id="actions"
         activeColumnIDs={activeColumnIDs}
-        className="dropdown-kebab-pf pf-c-table__action"
+        className="pf-c-table__action"
       >
         <CronTabRowActions obj={obj} />
       </TableData>
@@ -105,47 +105,41 @@ const useCronTabColumns = () => {
         id: 'name',
         transforms: [sortable],
         sort: 'metadata.name',
-        props: { className: 'pf-m-width-15' },
       },
       {
         title: t('Namespace'),
         id: 'namespace',
         transforms: [sortable],
         sort: 'metadata.namespace',
-        props: { className: 'pf-m-width-15' },
       },
       {
         title: t('CronSpec'),
         id: 'cronspec',
         transforms: [sortable],
         sort: 'spec.cronSpec',
-        props: { className: 'pf-m-width-15' },
       },
       {
         title: t('Image'),
         id: 'image',
         transforms: [sortable],
         sort: 'spec.image',
-        props: { className: 'pf-m-width-15' },
       },
       {
         title: t('Replicas'),
         id: 'replicas',
         transforms: [sortable],
         sort: 'spec.replicas',
-        props: { className: 'pf-m-width-15' },
       },
       {
         title: t('Created'),
         id: 'created',
         transforms: [sortable],
         sort: 'metadata.creationTimestamp',
-        props: { className: 'pf-m-width-15' },
       },
       {
         title: '',
         id: 'actions',
-        props: { className: 'dropdown-kebab-pf pf-c-table__action' },
+        props: { className: 'pf-c-table__action' },
       },
     ],
     [],

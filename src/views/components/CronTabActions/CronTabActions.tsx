@@ -1,5 +1,4 @@
 import React from 'react';
-import { getContentScrollableElement } from 'src/views/CronTabList/CronTabRowActions';
 import { useCronTabActionsProvider } from 'src/views/hooks/useCronTabActionsProvider';
 
 import { CronTabKind } from '@crontab-model';
@@ -23,24 +22,24 @@ type CronTabActionProps = {
 export const CronTabActions: React.FC<CronTabActionProps> = ({ cronTab, isKebabToggle }) => {
   const { t } = useCronTabTranslation();
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
-  const [actions /*, onLazyOpen*/] = useCronTabActionsProvider(cronTab);
+  const [actions] = useCronTabActionsProvider(cronTab);
 
   const handleClick = (action: Action) => {
     if (typeof action?.cta === 'function') {
       action.cta();
+    } else {
+      console.error('CronTabActions: action.cta is not a function');
     }
     setIsOpen(false);
   };
 
   const onDropDownToggle = (value: boolean) => {
     setIsOpen(value);
-    /*if (value) onLazyOpen();*/
   };
 
   return (
     <Dropdown
-      menuAppendTo={getContentScrollableElement}
-      data-test-id="console-cron-tab-actions"
+      menuAppendTo={"parent"}
       isPlain={isKebabToggle}
       isOpen={isOpen}
       position={DropdownPosition.right}
