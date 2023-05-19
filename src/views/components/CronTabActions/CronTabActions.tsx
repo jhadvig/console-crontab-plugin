@@ -1,7 +1,7 @@
 import React from 'react';
 import { useCronTabActionsProvider } from 'src/views/hooks/useCronTabActionsProvider';
 
-import { CronTabKind } from '@crontab-model';
+import { CronTabKind } from 'src/types';
 import { Action } from '@openshift-console/dynamic-plugin-sdk';
 import {
   Dropdown,
@@ -52,7 +52,6 @@ export const CronTabActions: React.FC<CronTabActionProps> = ({ cronTab, isKebabT
       }
       dropdownItems={actions?.map((action) => (
         <DropdownItem
-          data-test-id={action?.id}
           key={action?.id}
           onClick={() => handleClick(action)}
           isDisabled={action?.disabled}

@@ -4,8 +4,7 @@ This project serves as a minimal template for an Openshift dynamic plugin. It sh
 
 It requires OpenShift 4.11.
 
-The CronTab Dynamic Plugin creates new menu entry, routes, list page, details page and a
-default YAML template for a CRD.
+The CronTab Dynamic Plugin creates a new navigation entry, list page, details page, and YAML template for the CRD.
 
 ## Deployment on cluster
 

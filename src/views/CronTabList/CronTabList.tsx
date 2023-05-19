@@ -1,7 +1,5 @@
 import React from 'react';
-import { CronTabModel } from '@crontab-model/CronTabModel';
-import { CronTabKind } from '@crontab-model/CronTabModel';
-import { modelToGroupVersionKind, modelToRef } from '@crontab-utils/utils';
+import { CronTabKind } from '@crontab-model/types';
 import {
   K8sResourceCommon,
   ListPageBody,
@@ -43,7 +41,9 @@ const CronTabList: React.FC<CronTabListProps> = ({ namespace }) => {
   return (
     <>
       <ListPageHeader title={t('CronTab')}>
-        <ListPageCreate groupVersionKind={modelToRef(CronTabModel)}>Create CronTab</ListPageCreate>
+        {/* groupVeersionKind should be taking object but there is dicrepancy in the prop types
+        https://issues.redhat.com/browse/OCPBUGS-13808 should be updateing the types */}
+        <ListPageCreate groupVersionKind={`stable.example.com~v1~CronTab`}>Create CronTab</ListPageCreate>
       </ListPageHeader>
       <ListPageBody>
         <ListPageFilter data={data} loaded={loaded} onFilterChange={onFilterChange} />
@@ -65,7 +65,11 @@ const cronTabListRow: React.FC<RowProps<CronTabKind>> = ({ obj, activeColumnIDs 
     <>
       <TableData id="name" activeColumnIDs={activeColumnIDs} >
         <ResourceLink
-          groupVersionKind={modelToGroupVersionKind(CronTabModel)}
+          groupVersionKind={{
+            group: 'stable.example.com',
+            kind: 'CronTab',
+            version: 'v1',
+          }}
           name={obj.metadata.name}
           namespace={obj.metadata.namespace}
         />
