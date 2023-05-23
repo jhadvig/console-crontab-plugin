@@ -1,9 +1,7 @@
-import { K8sModel } from '@openshift-console/dynamic-plugin-sdk/lib/api/common-types';
+const cronTabGroupVersionKind = {
+  group: 'stable.example.com',
+  kind: 'CronTab',
+  version: 'v1',
+}
 
-const modelToGroupVersionKind = (obj: K8sModel) => ({
-  version: obj.apiVersion,
-  kind: obj.kind,
-  group: obj.apiGroup,
-});
-
-export { modelToGroupVersionKind };
+export { cronTabGroupVersionKind };

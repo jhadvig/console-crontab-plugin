@@ -12,6 +12,7 @@ import {
   VirtualizedTable,
 } from '@openshift-console/dynamic-plugin-sdk';
 import { useCronTabTranslation } from '@crontab-utils/hooks/useCronTabTranslation';
+import { cronTabGroupVersionKind } from '@crontab-utils/utils';
 import { ResourceLink, RowProps, TableData } from '@openshift-console/dynamic-plugin-sdk';
 import { TableColumn } from '@openshift-console/dynamic-plugin-sdk';
 import { sortable } from '@patternfly/react-table';
@@ -26,11 +27,7 @@ type CronTabListProps = {
 const CronTabList: React.FC<CronTabListProps> = ({ namespace }) => {
   const [cronTabs, loaded, loadError] = useK8sWatchResource<K8sResourceCommon[]>({
     isList: true,
-    groupVersionKind: {
-      group: 'stable.example.com',
-      kind: 'CronTab',
-      version: 'v1',
-    },
+    groupVersionKind: cronTabGroupVersionKind,
     namespaced: true,
     namespace,
   });
@@ -41,9 +38,9 @@ const CronTabList: React.FC<CronTabListProps> = ({ namespace }) => {
   return (
     <>
       <ListPageHeader title={t('CronTab')}>
-        {/* groupVeersionKind should be taking object but there is dicrepancy in the prop types
-        https://issues.redhat.com/browse/OCPBUGS-13808 should be updateing the types */}
-        <ListPageCreate groupVersionKind={`stable.example.com~v1~CronTab`}>Create CronTab</ListPageCreate>
+        {/* groupVersionKind should take an object but there is discrepancy in the prop types
+        https://issues.redhat.com/browse/OCPBUGS-13808 will update the types */}
+        <ListPageCreate groupVersionKind={"stable.example.com~v1~CronTab"}>Create CronTab</ListPageCreate>
       </ListPageHeader>
       <ListPageBody>
         <ListPageFilter data={data} loaded={loaded} onFilterChange={onFilterChange} />
@@ -65,11 +62,7 @@ const cronTabListRow: React.FC<RowProps<CronTabKind>> = ({ obj, activeColumnIDs 
     <>
       <TableData id="name" activeColumnIDs={activeColumnIDs} >
         <ResourceLink
-          groupVersionKind={{
-            group: 'stable.example.com',
-            kind: 'CronTab',
-            version: 'v1',
-          }}
+          groupVersionKind={cronTabGroupVersionKind}
           name={obj.metadata.name}
           namespace={obj.metadata.namespace}
         />

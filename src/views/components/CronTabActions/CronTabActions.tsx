@@ -1,11 +1,8 @@
 import React from 'react';
-import { useCronTabActionsProvider } from 'src/views/hooks/useCronTabActionsProvider';
 
 import { CronTabKind } from 'src/types';
-import { Action } from '@openshift-console/dynamic-plugin-sdk';
 import {
   Dropdown,
-  DropdownItem,
   DropdownPosition,
   DropdownToggle,
   KebabToggle,
@@ -22,16 +19,6 @@ type CronTabActionProps = {
 export const CronTabActions: React.FC<CronTabActionProps> = ({ cronTab, isKebabToggle }) => {
   const { t } = useCronTabTranslation();
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
-  const [actions] = useCronTabActionsProvider(cronTab);
-
-  const handleClick = (action: Action) => {
-    if (typeof action?.cta === 'function') {
-      action.cta();
-    } else {
-      console.error('CronTabActions: action.cta is not a function');
-    }
-    setIsOpen(false);
-  };
 
   const onDropDownToggle = (value: boolean) => {
     setIsOpen(value);
@@ -50,16 +37,6 @@ export const CronTabActions: React.FC<CronTabActionProps> = ({ cronTab, isKebabT
           <DropdownToggle onToggle={onDropDownToggle}>{t('Actions')}</DropdownToggle>
         )
       }
-      dropdownItems={actions?.map((action) => (
-        <DropdownItem
-          key={action?.id}
-          onClick={() => handleClick(action)}
-          isDisabled={action?.disabled}
-          description={action?.description}
-        >
-          {action?.label}
-        </DropdownItem>
-      ))}
     />
   );
 };

@@ -61,21 +61,5 @@
         "required": ["CRONTAB"]
       }
     }
-  },
-  {
-    "type": "console.action/resource-provider",
-    "properties": {
-      "model": {
-        "group": "stable.example.com",
-        "kind": "CronTab",
-        "version": "v1"
-      },
-      "provider": {
-        "$codeRef": "useCronTabActionsProvider.useCronTabActionsProvider"
-      },
-      "flags": {
-        "required": ["CRONTAB"]
-      }
-    }
   }
 ]

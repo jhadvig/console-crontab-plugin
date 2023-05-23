@@ -20,7 +20,6 @@ const CronTabRowActions: React.FC<CronTabRowActionsProps> = ({ obj }) => {
       toggle={<KebabToggle onToggle={setIsDropdownOpen} id="toggle-id-disk" />}
       isOpen={isDropdownOpen}
       isPlain
-      dropdownItems={[]}
       position={DropdownPosition.right}
     />
   );
