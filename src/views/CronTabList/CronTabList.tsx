@@ -17,9 +17,6 @@ import { ResourceLink, RowProps, TableData } from '@openshift-console/dynamic-pl
 import { TableColumn } from '@openshift-console/dynamic-plugin-sdk';
 import { sortable } from '@patternfly/react-table';
 
-import CronTabRowActions from './CronTabRowActions';
-
-
 type CronTabListProps = {
   namespace: string;
 };
@@ -82,13 +79,6 @@ const cronTabListRow: React.FC<RowProps<CronTabKind>> = ({ obj, activeColumnIDs 
       <TableData id="created" activeColumnIDs={activeColumnIDs} >
         <Timestamp timestamp={obj.metadata.creationTimestamp} />
       </TableData>
-      <TableData
-        id="actions"
-        activeColumnIDs={activeColumnIDs}
-        className="pf-c-table__action"
-      >
-        <CronTabRowActions obj={obj} />
-      </TableData>
     </>
   );
 };
@@ -132,11 +122,6 @@ const useCronTabColumns = () => {
         id: 'created',
         transforms: [sortable],
         sort: 'metadata.creationTimestamp',
-      },
-      {
-        title: '',
-        id: 'actions',
-        props: { className: 'pf-c-table__action' },
       },
     ],
     [],
